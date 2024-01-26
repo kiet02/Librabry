@@ -18,6 +18,7 @@ import Savebooks from './_src/Home/Savebooks';
 import User from './_src/Home/User';
 import DrawerCustom from './_src/DrawerCustom';
 import Author from './_src/Home/Author';
+import Genre from './_src/Book/Genre';
 
 
 
@@ -44,7 +45,7 @@ function App() {
   }
     return(
       <NavigationContainer>
-      <Stack.Navigator initialRouteName='Signin' screenOptions={{headerShown:false}}>
+      <Stack.Navigator initialRouteName='Singin' screenOptions={{headerShown:false}}>
       <Stack.Screen name="Signin" component={Signin} />
       <Stack.Screen name="Signup" component={Signup} />
       {/* <Stack.Screen name="Home" component={Home}/> */}
@@ -57,6 +58,8 @@ function App() {
       <Stack.Screen name="Savebook" component={Savebooks} />
       <Stack.Screen name="User" component={User} />
       <Stack.Screen name="Author" component={Author} />
+      <Stack.Screen name="Genre" component={Genre} />
+
 
   </Stack.Navigator>
   </NavigationContainer>

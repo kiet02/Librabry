@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-const Pagination = ({numberOfElements}) => {
+const Pagination = ({numberOfElements,onValueChange}) => {
   const page = Array.from({length: numberOfElements}, (_, index) => index + 1);
 
   const [ipage, setipage] = useState(1);
   const [comment, setcomment] = useState(1);
-
+const hand =()=>{
+  onValueChange(comment)
+ 
+}
+console.log(comment,'jj');
   function Setpage() {
     return (
       <View style={{flexDirection: 'row'}}>
@@ -17,7 +21,7 @@ const Pagination = ({numberOfElements}) => {
         {page[ipage - 1] != page[0] && page[ipage - 1] ? (
           <TouchableOpacity
             onPress={() =>
-              setipage(page[ipage - 2], setcomment(page[ipage - 1]))
+              {setipage(page[ipage - 2]), setcomment(page[ipage - 1]),hand()}
             }>
             <Text style={styles.text}>{`  ${page[ipage - 1]}  `}</Text>
           </TouchableOpacity>
@@ -26,7 +30,7 @@ const Pagination = ({numberOfElements}) => {
 
         {page[ipage] != page[numberOfElements-1]  && page[ipage] ? (
           <TouchableOpacity
-            onPress={() => setipage(page[ipage - 1], setcomment(page[ipage]))}>
+            onPress={() => {setipage(page[ipage - 1]), setcomment(page[ipage]),hand()}}>
             <Text style={styles.text}>{`  ${page[ipage]}  `}</Text>
           </TouchableOpacity>
         ) : null}
@@ -35,14 +39,14 @@ const Pagination = ({numberOfElements}) => {
         {page[ipage + 1] != page[numberOfElements-1] && page[ipage + 1] ? (
           <TouchableOpacity
             onPress={() => {
-              setipage(page[ipage]), setcomment(page[ipage + 1]);
+              setipage(page[ipage]), setcomment(page[ipage + 1]),hand();
             }}>
             <Text style={styles.text}>{`  ${page[ipage + 1]}  `}</Text>
           </TouchableOpacity>
         ) : null}
 
 
-        {page[ipage] < 18 ? <Text style={styles.text}>...</Text> : null}
+        {page[ipage] < numberOfElements-2 ? <Text style={styles.text}>...</Text> : null}
       </View>
     );
   }
@@ -53,7 +57,7 @@ const Pagination = ({numberOfElements}) => {
       <Text style={styles.text}>{' < '}</Text>
       <TouchableOpacity
         onPress={() => {
-          setipage(page[0]), setcomment(page[0]);
+          setipage(page[0]), setcomment(page[0]),hand()
         }}>
         <Text style={styles.text}>{`  ${page[0]}  `}</Text>
       </TouchableOpacity>
@@ -62,7 +66,7 @@ const Pagination = ({numberOfElements}) => {
 
       <TouchableOpacity
         onPress={() => {
-          setipage(page[page.length - 2]), setcomment(page[page.length - 1]);
+          setipage(page[page.length - 2]), setcomment(page[page.length - 1]),hand()
         }}>
         <Text style={styles.text}>{`  ${page[page.length - 1]}  `}</Text>
       </TouchableOpacity>

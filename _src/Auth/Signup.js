@@ -87,7 +87,7 @@ export default function Signup({navigation}) {
   };
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor:'#fcf3de'}}>
       <Image source={require('../image/Logo.png')} style={Style.imag} />
       <TouchableOpacity onPress={() => pickImage()}>
         <Image
@@ -106,6 +106,9 @@ export default function Signup({navigation}) {
         style={Style.tinp}
         placeholder="Tài khoản"
         value={email}
+        placeholderTextColor='#8a9099'
+
+
         onChangeText={t => setEmail(t)}
       />
       {!validate(email) && isCheck && email != '' ? (
@@ -119,6 +122,9 @@ export default function Signup({navigation}) {
         passwordRules={true}
         secureTextEntry={true}
         value={password}
+        placeholderTextColor='#8a9099'
+
+
         onChangeText={t => sestPassword(t)}
       />
       {!checkPass && password != ''? (
@@ -132,12 +138,16 @@ export default function Signup({navigation}) {
         passwordRules={true}
         secureTextEntry={true}
         value={rePassword}
+        placeholderTextColor='#8a9099'
+
         onChangeText={t => sestRePassword(t)}
       />
       <TextInput
         style={Style.tinp}
         placeholder="Tên người dùng"
         value={name}
+        placeholderTextColor='#8a9099'
+
         onChangeText={t => setName(t)}
       />
       <TouchableOpacity
@@ -174,6 +184,7 @@ const Style = StyleSheet.create({
     backgroundColor: 'white',
     elevation: 1,
     textAlign: 'center',
+    color:'black'
   },
   box: {
     width: 250,

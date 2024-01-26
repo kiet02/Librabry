@@ -67,7 +67,7 @@ export default function Savebooks({navigation}) {
         renderItem={({index, item}) => {
           return (
             <TouchableOpacity
-            onPress={() => navigation.navigate('Book',{uid:item.book.idBook})}
+            onPress={() => navigation.navigate('Book',{uid:item.book.idBook,idUser: params.idUser.idUser,})}
               style={{
                 width: '40%',
                 height: 200,
